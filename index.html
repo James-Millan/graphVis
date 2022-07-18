@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/3322617c5e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Graph Visualiser</title>
+</head>
+<nav>
+    <a href="/index.html"><button class="myBtn">Home</button></a>
+    <a href="/projects.html"><button class="myBtn">Projects</button></a>
+    <a href="/modules.html"><button class="myBtn">Modules</button></a>
+    <a href="/fitness.html"><button class="myBtn">Fitness</button></a>
+    <div class="icons">
+        <a class="icon" href="https://www.linkedin.com/in/james-millan23" target='_blank' rel='noopener'>
+            <i class="fa-brands fa-3x fa-linkedin"></i>
+        </a>
+        <a class="icon" href="https://github.com/James-Millan/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-3x fa-github-square"></i>
+        </a>
+        <a class="icon" href="mailto:nf20792@bristol.ac.uk" target="_blank" rel="noopener">
+            <i class="fa fa-envelope fa-3x"></i>
+        </a>
+    </div>
+</nav>
+<body class="body">
+    <h1>Graph Visualiser</h1>
+    <form id="inputForm" action="#" onsubmit="visualise()">
+        <label for="vertices">Please enter a comma seperated list of vertices.</label>
+        <input type="text" class="formInput" id="vertices" placeholder="v1, v2, v3..." required>
+        <label for="edges">Please enter a comma seperated list of edges. Edges should take the form: (v1, v2) OR [v1, v2] OR {v1, v2}.</label>
+        <input type="text" id="edges" class="formInput" placeholder="(v1,v2), (v2,v3)..." required>
+        <button type="submit">Visualise!</button>
+    </form>
+    <div id="graph">
+
+    </div>
+</body>
+</html>
