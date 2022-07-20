@@ -1,3 +1,7 @@
+//global variables
+let vertices = {};
+
+
 function visualise()
 {
     console.log("entered visualise");
@@ -7,8 +11,8 @@ function visualise()
     console.log(vertices);
     for ( let vertex of vertices )
     {
-
-        drawVertex();
+        let size = getRandomSize();
+        drawVertex(vertex, size);
     }
 }
 
@@ -37,33 +41,34 @@ function extractVertices(rawVertices)
     return vertices;
 }
 
-function drawVertex()
+//So the graph isn't just a grid :)
+function getRandomSize()
 {
+    return (Math.floor(Math.random() * 100));
+}
+
+function drawVertex(label, size)
+{
+    //TODO label each vertex
     const graphElement = document.getElementById("graph");
     const canvas = document.createElement("canvas");
+    canvas.style.padding = "0px     " + size.toString() + "px";
     graphElement.append(canvas);
     const context = canvas.getContext('2d');
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const radius = 10;
+    const radius = 15;
     context.beginPath();
     context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-    context.fillStyle = 'green';
+    context.fillStyle = 'black';
     context.fill();
     context.lineWidth = 5;
     context.strokeStyle = '#003300';
     context.stroke();
-   /* let displayVertex = document.createElement("canvas");
-    if ( displayVertex.getContext )
-    {
-        let ctx = displayVertex.getContext('2d');
-        let centerX = displayVertex.width / 2;
-        let centerY = displayVertex.height / 2;
-        let radius = 45;
-        ctx.beginPath();
-        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = '#FF0000';
-        ctx.stroke();
-    }*/
+
+    //store co-ordinates of vertices by their label which acts as an identifier.
+    vertices[label] = {
+        x: centerX,
+        y: centerY
+    };
 }

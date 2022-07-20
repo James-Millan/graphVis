@@ -2,6 +2,11 @@
     display: block;
 }
 
-#graph canvas {
+#graph  {
+    width: 50%
+}
 
+canvas {
+    width: 5rem;
+    padding: 0;
 }
